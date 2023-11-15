@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Find in Metadata</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer, graph;
+			function onload() {
+				let loader = new Huayou.SVGLoader();
+				loader.load("../../models/standard.svg", function (svg){
+					graph = new Huayou.Graph(svg);
+					viewer = new Huayou.Viewer("container", graph);
+					viewer.border = "1px solid black";
+				});
+			}
+			function bySelector(){
+				const metadata = graph.metadata;
+				console.log("querySelector by 'path'");
+				let element = metadata.querySelector("path");//return Element
+				console.log(element);
+				console.log("querySelector by [about='#Hub']");
+				element = metadata.querySelector("[about='#Hub']");
+				console.log(element);
+				console.log("querySelectorAll by 'symbol'");
+				let elements = metadata.querySelectorAll("symbol");//return Array<Element>
+				console.log(elements);
+				console.log("querySelectorAll by [rdf:resource] ");
+				elements = metadata.querySelectorAll("[rdf\\:resource]");
+				for (const element of elements.values()){
+					console.log(element);
+				}
+			}
+			function byTagName(){
+				const metadata = graph.metadata;
+				console.log("find by TagName 'symbol'");
+				let elements = metadata.getElementsByTagName("symbol");//return Array<Element>
+				console.log(elements);
+				console.log("find by TagName 'rdf:description' ");
+				elements = metadata.getElementsByTagName("rdf:description");//return Array<Element>
+				for (const element of elements.values()){
+					console.log(element);
+				}
+				console.log("find by TagName 'connect:ends' ");
+				elements = metadata.getElementsByTagName("connect:ends");//return Array<Element>
+				for (const element of elements.values()){
+					console.log(element);
+				}
+			}
+			function byClassName(){
+				const metadata = graph.metadata;
+				console.log("find by ClassName 'tag'");
+				elements = metadata.getElementsByClassName("tag");//return Array<Element>
+				console.log(elements);
+			}
+		</script>
+
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			<div>Find in Metadata</div>
+			<button onclick="bySelector()">by Selector</button>
+			<button onclick="byTagName()">by TagName</button>
+			<button onclick="byClassName()">by ClassName</button>
+		</div>
+		<div id="container" style="width:95%;height:80%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

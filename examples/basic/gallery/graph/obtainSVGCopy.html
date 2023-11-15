@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Obtain a shallow copy of Modeled SVG</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer, graph;
+			function onload() {
+				let loader = new Huayou.SVGLoader();
+				loader.load("../../models/hub.svg", function (svg){
+					graph = new Huayou.Graph(svg);
+					viewer = new Huayou.Viewer("container", graph);
+					viewer.border = "1px solid black";
+				});
+			}
+			function get(){
+				//get a shallow copy of Modeled SVG
+				let modeledSVG = graph.getModeledSVG();
+				let hubNo = modeledSVG.dataset.no;
+				let hubType = modeledSVG.dataset.type;
+				let hubProducer = modeledSVG.dataset.producer;
+				let text1 = Utils.createSVGElement("text",{x:100,y:300});
+				text1.textContent="No: " + hubNo;
+				let text2 = Utils.createSVGElement("text",{x:100,y:320});
+				text2.textContent="Type: " + hubType;
+				let text3 = Utils.createSVGElement("text",{x:100,y:340});
+				text3.textContent="Producer: " + hubProducer;
+				let layer = graph.layers.get("device");
+				layer.append(text1,text2,text3);
+			}
+		</script>
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			<button onclick="get()" >SVG shallow Copy</button>
+		</div>
+		<div id="container" style="width:95%;height:80%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

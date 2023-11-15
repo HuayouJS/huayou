@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>create blank graph</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			function onload() {
+				let graph = new Huayou.Graph();
+				let viewer = new Huayou.Viewer("container", graph);
+				viewer.border = "1px solid black";
+			}
+		</script>
+	</head>
+	<body onload="onload()">
+		<div id="container" style="width:90%;height:60%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

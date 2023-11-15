@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Layers & Iterator</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer, graph;
+			function onload() {
+				graph = new Huayou.Graph();
+				viewer = new Huayou.Viewer("container", graph);
+				viewer.border = "1px solid black";
+				addLayer();
+			}
+			function addLayer() {
+				let layer0 = new Huayou.Layer("layer0");
+				let attrs = {x:50, y:50, width:300, height:300, fill:"lightgray", stroke:"black", "fill-opacity":0.9};
+				let rect0 = Utils.createSVGElement("rect",attrs);
+				layer0.appendChild(rect0);
+				graph.layers.add(layer0)
+				let layer1 = new Huayou.Layer("layer1");
+				attrs = {x:100, y:100, width:80, height:80, fill:"red", stroke:"black"};
+				let rect1 = Utils.createSVGElement("rect",attrs);
+				layer1.appendChild(rect1);
+				graph.layers.add(layer1);
+				let layer2 = new Huayou.Layer("layer2");
+				attrs = {x:150, y:150, width:80, height:80, fill:"yellow", stroke:"black"};
+				let rect2 = Utils.createSVGElement("rect",attrs);
+				layer2.appendChild(rect2);
+				graph.layers.add(layer2);
+				let layer3 = new Huayou.Layer("layer3");
+				attrs = {x:200, y:200, width:80, height:80, fill:"blue", stroke:"black"};
+				let rect3 = Utils.createSVGElement("rect",attrs);
+				layer3.appendChild(rect3);
+				graph.layers.add(layer3);
+			}
+			function keys() {
+				console.log("keys interator");
+				let layers = graph.layers;
+				for(const index of layers.keys() ){
+					console.log("layer: index="+index);
+				}
+			}
+
+			function values() {
+				console.log("values interator");
+				let layers = graph.layers;
+				for(const layer of layers.values() ){
+					console.log(`layer: name=${layer.name}`);
+				}
+			}
+			function entries() {
+				console.log("entries interator");
+				let layers = graph.layers;
+				for(const array of layers.entries() ){
+					console.log(`layer: index=${array[0]}, name=${array[1].name}`);
+				}
+			}
+			function forEach() {
+				console.log("forEach interator");
+				let layers = graph.layers;
+				layers.forEach((layer, index, layers)=>{
+					console.log(`layer: index=${index}, name=${layer.name}`);
+				})
+			}
+		</script>
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			<button	onclick="keys()">keys</button>
+			<button	onclick="values()">values</button>
+			<button	onclick="entries()">entries</button>
+			<button	onclick="forEach()">forEach</button>
+		</div>
+		<div id="container" style="width:95%;height:80%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

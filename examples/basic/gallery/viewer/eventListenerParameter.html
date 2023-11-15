@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Viewer Event Listener Parameters</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer;
+			let listenerMap = new Map();
+			let callback;
+			function onload() {
+				let loader = new Huayou.SVGLoader();
+				loader.load("../../models/hub.svg", function (svg){
+					let graph = new Huayou.Graph(svg);
+					viewer = new Huayou.Viewer("container", graph);
+					viewer.border = "1px solid black";
+				});
+			}
+			function addListener(){
+				let type = document.getElementById("eventType").value;
+				viewer.addEventListener(type, callback = (e) => {
+					console.log(type+" e.type="+e.type);
+					console.log(type+" e.target.id="+e.target.id);
+					console.log(type+" e.currentTarget="+e.currentTarget.constructor.name);
+					eventParameters(e);
+				});
+				if (listenerMap.get(type)) {
+					listenerMap.get(type).add(callback);
+				} else {
+					const callbackSet = new Set();
+					callbackSet.add(callback)
+					listenerMap.set(type,callbackSet);
+				}
+			}
+			function eventParameters(e){
+				switch (e.type){
+					case "click":
+					case "contextmenu":
+					case "dblclick":
+					case "mousedown":
+					case "mousemove":
+					case "mouseup":
+						console.log(`${e.type} e.point.x=${e.point.x}, e.point.y=${e.point.y}`);
+						console.log(`${e.type} e.event.type=${e.event.type}, e.event.button=${e.event.button}`);
+						break;
+					case "mouseenter":
+					case "mouseleave":
+					case "wheel":
+						console.log(`${e.type} e.event.type=${e.event.type}, e.event.button=${e.event.button}`);
+						break;
+					case "panstart":
+						console.log(`${e.type} e.event=${e.event}`);
+						console.log("panstart e.oldPan.x="+e.oldPan.x);
+						console.log("panstart e.newPan.x="+e.newPan.x);
+						break;
+					case "panend":
+						console.log(`${e.type} e.event=${e.event}`);
+						console.log("panend e.pan.x="+e.pan.x);
+						break;
+					case "zoomstart":
+						console.log(`${e.type} e.event=${e.event}`);
+						console.log("zoomstart e.oldZoom="+e.oldZoom);
+						console.log("zoomstart e.newZoom="+e.newZoom);
+						break;
+					case "zoomend":
+						console.log(`${e.type} e.event=${e.event}`);
+						console.log("zoomend e.zoom="+e.zoom);
+						break;
+					case "resize":
+						console.log(`${e.type} e.event=${e.event}`);
+						console.log(`resize e.newSize.width=${e.newSize.width}, e.newSize.height=${e.newSize.height}`);
+						console.log(`resize e.oldSize.width=${e.oldSize.width}, e.oldSize.height=${e.oldSize.height}`);
+						break;
+					default:
+						break;
+				}
+			}
+			function removeListener(){
+				let type = document.getElementById("eventType").value;
+				let callbackSet = listenerMap.get(type);
+				if(callbackSet){
+					callbackSet.forEach((callback) => {
+						viewer.removeEventListener(type,callback);
+					})
+					listenerMap.delete(type);
+				}
+			}
+		</script>
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			Event
+			<select id="eventType">
+				<option value="click">click</option>
+				<option value="contextmenu">contextmenu</option>
+				<option value="dblclick">dblclick</option>
+				<option value="mousedown">mousedown</option>
+				<option value="mousemove">mousemove</option>
+				<option value="mouseup">mouseup</option>
+				<option value="mouseenter">mouseenter</option>
+				<option value="mouseleave">mouseleave</option>
+				<option value="wheel">wheel</option>
+				<option value="panstart">panstart</option>
+				<option value="panend">panend</option>
+				<option value="zoomstart">zoomstart</option>
+				<option value="zoomend">zoomend</option>
+				<option value="resize">resize</option>
+			</select>
+			<button onclick="addListener()">addListener</button>
+			<button	onclick="removeListener()">removeListener</button>
+		</div>
+		<div id="container" style="width:90%;height:60%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

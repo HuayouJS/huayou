@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Viewer Events and Interaction</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer, graph;
+			let isDragged=false,isPress;
+			function onload() {
+				let loader = new Huayou.SVGLoader();
+				loader.load("../../models/standard.svg", function (svg){
+					graph = new Huayou.Graph(svg);
+					viewer = new Huayou.Viewer("container", graph);
+					viewer.border = "1px solid black";
+					addListeners()
+				});
+			}
+			function addListeners(){
+				//mouseenter
+				viewer.addEventListener("mouseenter", (e) => {
+					document.body.style.cursor = 'move';
+				})
+				//mouseleave
+				viewer.addEventListener("mouseleave",(e)=>{
+					document.body.style.cursor = '';
+				})
+				viewer.addEventListener("mousemove",onMousemove);
+				viewer.addEventListener("mousedown",onMousedown);
+				viewer.addEventListener("mouseup",onMouseup);
+				//click
+				viewer.addEventListener("click",(e)=>{
+					if (!isDragged) {
+						let msg = "click :" +
+								`\n  e.type=${e.type} ` +
+								`\n  e.target.id=${e.target.id} ` +
+								`\n  e.currentTarget=${e.currentTarget.constructor.name} ` +
+								`\n  e.point.x=${e.point.x}}, e.point.y=${e.point.y} ` ;
+						alert(msg);
+					}
+				})
+				//contextmenu
+				viewer.addEventListener("contextmenu",(e)=>{
+					let msg = "contextmenu :" +
+							`\n  e.type=${e.type} ` +
+							`\n  e.target.id=${e.target.id} ` +
+							`\n  e.currentTarget=${e.currentTarget.constructor.name} ` +
+							`\n  e.point.x=${e.point.x}}, e.point.y=${e.point.y} ` ;
+					alert(msg);
+				})
+			}
+			function onMousemove(e) {
+				if(isPress) isDragged = true;
+			}
+			function onMousedown(e){
+				isPress = true;
+				isDragged = false;
+			}
+			function onMouseup(e){
+				isPress = false;
+			}
+		</script>
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			<div>Please move the mouse in/out of the Viewer, or click the left/right mouse button to interact.</div>
+		</div>
+		<div id="container" style="width:95%;height:80%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

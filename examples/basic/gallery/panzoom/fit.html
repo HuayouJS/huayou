@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>fit & center & full & ...</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer, graph;
+			function onload() {
+				let loader = new Huayou.SVGLoader();
+				loader.load("../../models/standard.svg", function (svg){
+					graph = new Huayou.Graph(svg);
+					viewer = new Huayou.Viewer("container", graph);
+					viewer.border = "1px solid black";
+				});
+			}
+			function fit(){
+				viewer.fit();
+			}
+			function contain(){
+				viewer.contain();
+			}
+			function center(){
+				viewer.center();
+			}
+			function centerAt(){
+				viewer.center({x:100, y:100});
+			}
+			function zoomFull(){
+				viewer.zoomFull();
+			}
+			function reset(){
+				viewer.reset();
+			}
+
+		</script>
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			<button onclick="fit()">fit</button>
+			<button	onclick="contain()">contain</button>
+			<button	onclick="center()">center</button>
+			<button	onclick="centerAt()">centerAt</button>
+			<button onclick="zoomFull()">full</button>
+			<button onclick="reset()">reset</button>
+		</div>
+		<div id="container" style="width:95%;height:80%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

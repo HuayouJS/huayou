@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Pan limit</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer, graph;
+			function onload() {
+				let loader = new Huayou.SVGLoader();
+				loader.load("../../models/standard.svg", function (svg){
+					graph = new Huayou.Graph(svg);
+					viewer = new Huayou.Viewer("container", graph);
+					viewer.border = "1px solid black";
+					viewer.addEventListener("panstart",onPanstart);
+				});
+			}
+
+			function onPanstart(e){
+				const zoom = viewer.getCurrentZoom();
+				const bBox = viewer.getBBox();
+				let stopHorizontal = false
+						, stopVertical = false
+						, gutterWidth = 100
+						, gutterHeight = 100
+						//Computed variables
+						, leftLimit = -((bBox.x + bBox.width) * zoom) + gutterWidth
+						, rightLimit = bBox.width - gutterWidth - (bBox.x * zoom)
+						, topLimit = -((bBox.y + bBox.height) * zoom) + gutterHeight
+						, bottomLimit = bBox.height - gutterHeight - (bBox.y * zoom)
+
+				customPan = {};
+				customPan.x = Math.max(leftLimit, Math.min(rightLimit, e.newPan.x));
+				customPan.y = Math.max(topLimit, Math.min(bottomLimit, e.newPan.y));
+				// When the panstart event callback function has a return value,
+				// the Viewer will use that value for translation instead of the newPan value for translation.
+				return customPan;
+			}
+		</script>
+	</head>
+	<body onload="onload()">
+		<div id="container" style="width:95%;height:80%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Viewer resize and fit</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer, graph;
+			function onload() {
+				let loader = new Huayou.SVGLoader();
+				loader.load("../../models/hub.svg", function (svg){
+					graph = new Huayou.Graph(svg);
+					viewer = new Huayou.Viewer("container", graph);
+					viewer.border = "1px solid black";
+					copyHub();
+					initZoomFull();
+					viewer.addEventListener("resize", onViewerResize);
+				});
+			}
+			function copyHub(){
+				let hub = graph.getElementById("Hub");
+				const hub1 = hub.cloneNode(true);
+				hub1.setAttribute("transform","translate(600 100)");
+				const hub2 = hub.cloneNode(true);
+				hub2.setAttribute("transform","translate(1020 100)");
+				const layer = graph.layers.get("device");
+				layer.append(hub1,hub2)
+			}
+			function initZoomFull() {
+				let bbox=viewer.getBBox();
+				if(bbox.width > viewer.width || bbox.height > viewer.height){
+					viewer.zoomFull();
+				}
+			}
+			function onViewerResize(e){
+				if (e.newSize.width > e.oldSize.width || e.newSize.height > e.oldSize.height) {
+					let bbox=viewer.getBBox();
+					let currentZoom = viewer.getCurrentZoom();
+					let zoomWidth = bbox.width * currentZoom;
+					let zoomHeight = bbox.height * currentZoom;
+					if(bbox.width > viewer.width || bbox.height > viewer.height){
+						if(viewer.width > zoomWidth && viewer.height > zoomHeight){
+							viewer.zoomFull();
+						}
+					}
+				}
+			}
+
+		</script>
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			<div>Please change the window size or drag the area divider to observe the changes.</div>
+		</div>
+		<div id="container" style="width:95%;height:80%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

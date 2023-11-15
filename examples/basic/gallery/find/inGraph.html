@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Find in Graph</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer, graph;
+			function onload() {
+				let loader = new Huayou.SVGLoader();
+				loader.load("../../models/standard.svg", function (svg){
+					graph = new Huayou.Graph(svg);
+					viewer = new Huayou.Viewer("container", graph);
+					viewer.border = "1px solid black";
+				});
+			}
+			function byId(){
+				console.log("find by id = 'hubPlug'");
+				let element = graph.getElementById("hubPlug");
+				console.log(element);
+				console.log("find by id = 'socket5'");
+				element = graph.getElementById("socket5");
+				console.log(element);
+			}
+			function bySelector(){
+				console.log("querySelector by  'path'");
+				let element = graph.querySelector("path");//return Element
+				console.log(element);
+				console.log("querySelector by [href='#hubPlug'] ");
+				element = graph.querySelector("[href='#hubPlug']");
+				console.log(element);
+				console.log("querySelectorAll by  'rect'");
+				let elements = graph.querySelectorAll("rect");//return Array<Element>
+				for (const element of elements.values()){
+					console.log(element);
+				}
+				console.log("querySelectorAll by [href='#hubPlug'] ");
+				elements = graph.querySelectorAll("[href='#hubPlug']");
+				for (const element of elements.values()){
+					console.log(element);
+				}
+			}
+			function byTagName(){
+				console.log("find by TagName 'rect'");
+				let elements = graph.getElementsByTagName("rect");//return Array<Element>
+				for (const element of elements.values()){
+					console.log(element);
+				}
+				console.log("find by TagName 'use'");
+				elements = graph.getElementsByTagName("use");//return Array<Element>
+				for (const element of elements.values()){
+					console.log(element);
+				}
+			}
+			function byClassName(){
+				console.log("find by ClassName 'tag'");
+				elements = graph.getElementsByClassName("tag");//return Array<Element>
+				for (const element of elements.values()){
+					console.log(element);
+				}
+			}
+
+		</script>
+
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			<div>Find in Graph</div>
+			<button onclick="byId()">by Id</button>
+			<button onclick="bySelector()">by Selector</button>
+			<button onclick="byTagName()">by TagName</button>
+			<button onclick="byClassName()">by ClassName</button>
+		</div>
+		<div id="container" style="width:95%;height:80%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

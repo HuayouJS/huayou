@@ -1,0 +1,16 @@
+
+*.map
+package-lock.json
+test.html
+
+# Folders to ignore
+.idea/
+node_modules/
+publish/
+src/
+test/
+
+# Folders to ignore
+docs/designer/
+docs/guide/
+examples/advanced/

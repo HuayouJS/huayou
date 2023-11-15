@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Viewer Event Listener add/remove</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer;
+			function onload() {
+				let loader = new Huayou.SVGLoader();
+				loader.load("../../models/hub.svg", function (svg){
+					let graph = new Huayou.Graph(svg);
+					viewer = new Huayou.Viewer("container", graph);
+					viewer.border = "1px solid black";
+				});
+			}
+			//click EventListener
+			function addClickListener(){
+				viewer.addEventListener("click", onClick);
+			}
+			function onClick(e){
+				console.log("onClick-> e.type="+e.type);
+				console.log("onClick-> e.target.id="+e.target.id);
+				console.log("onClick-> e.currentTarget="+e.currentTarget.constructor.name);
+				console.log(`onClick-> e.point.x=${e.point.x}, e.point.y=${e.point.y}`);
+				//native Dom event
+				console.log(`onClick-> e.event.type=${e.event.type}, e.event.button=${e.event.button}`);
+			}
+			function removeClickListener(){
+				viewer.removeEventListener("click",onClick);
+			}
+			//click EventListener2
+			function addClickListener2(){
+				viewer.addEventListener("click", onClick2);
+			}
+			function onClick2(e){
+				console.log("onClick2-> e.type="+e.type);
+				console.log("onClick2-> e.target.id="+e.target.id);
+				console.log("onClick2-> e.currentTarget="+e.currentTarget.constructor.name);
+				console.log(`onClick2-> e.point.x=${e.point.x}, e.point.y=${e.point.y}`);
+				//native Dom event
+				console.log(`onClick2-> e.event.type=${e.event.type}, e.event.button=${e.event.button}`);
+			}
+			function removeClickListener2(){
+				viewer.removeEventListener("click",onClick2);
+			}
+		</script>
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			<button onclick="addClickListener()">addClickListener</button>
+			<button	onclick="removeClickListener()">removeClickListener</button>
+			<button onclick="addClickListener2()">addClickListener2</button>
+			<button	onclick="removeClickListener2()">removeClickListener2</button>
+		</div>
+		<div id="container" style="width:90%;height:60%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

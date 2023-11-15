@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns:huayou="com.huayoujs.xsvg"
+	 xmlns="http://www.w3.org/2000/svg"
+	 xmlns:xlink="http://www.w3.org/1999/xlink"
+	 data-no="2010XA100"
+	 data-type="10BaseT/100BaseTX"
+	 data-producer="Cisco">
+	<defs huayou:is="Defs">
+		<!-- hubPlug symbol. Used by hub -->
+		<symbol id="hubPlug">
+			<desc>A 10BaseT/100baseTX socket</desc>
+			<path d="M0,10 h5 v-9 h12 v9 h5 v16 h-22 z" fill="none" stroke="black"/>
+		</symbol>
+	</defs>
+	<g huayou:is="Layers">
+		<g huayou:is="Layer" huayou:name="device" >
+			<g id="Hub" transform="translate(100 100)">
+				<title>A network hub</title>
+				<text x="0" y="15">Hub</text>
+				<g transform="translate(0 20)">
+					<rect id="Hub_shell1" width="253" height="84" fill="white" stroke="black"/>
+					<rect id="Hub_shell2" width="229" height="44" x="12" y="10" fill="white" stroke="black"/>
+					<circle id="Hub_power" fill="red" cx="227" cy="71" r="7" />
+					<!-- five groups each using the defined socket -->
+					<g id="sock1et" transform="translate(25 20)">
+						<title>Socket 1</title>
+						<use href="#hubPlug" />
+					</g>
+					<g id="socket2" transform="translate(70 20)">
+						<title>Socket 2</title>
+						<use href="#hubPlug" />
+					</g>
+					<g id="socket3" transform="translate(115 20)">
+						<title>Socket 3</title>
+						<use href="#hubPlug" />
+					</g>
+					<g id="socket4" transform="translate(160 20)">
+						<title>Socket 4</title>
+						<use href="#hubPlug" />
+					</g>
+					<g id="socket5" transform="translate(205 20)">
+						<title>Socket 5</title>
+						<use href="#hubPlug" />
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

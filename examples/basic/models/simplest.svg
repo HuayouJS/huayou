@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns:huayou="com.huayoujs.xsvg"
+	 xmlns="http://www.w3.org/2000/svg"
+	 xmlns:xlink="http://www.w3.org/1999/xlink">
+	<g huayou:is="Layers">
+		<g huayou:is="Layer" huayou:name="layer1" >
+			<text x="100" y="100" font-size="26">The simplest model example</text>
+		</g>
+	</g>
+</svg>

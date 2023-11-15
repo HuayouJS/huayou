@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns:huayou="com.huayoujs.xsvg"
+	 xmlns="http://www.w3.org/2000/svg"
+	 xmlns:xlink="http://www.w3.org/1999/xlink">
+	<style huayou:is="Style">
+		.link { cursor:pointer; }
+		rect { width:30px; height:30px; stroke:red; stroke-width:1px; cursor:default}
+		circle { r:15px; cursor:default }
+	</style>
+	<g huayou:is="Layers">
+		<g huayou:is="Layer" huayou:name="open" >
+			<text onclick="thisPage()" class="link" x="50" y="50">This Page</text>
+			<text onclick="newTab()" class="link" x="150" y="50">New Tab</text>
+			<text onclick="newWindow()" class="link" x="250" y="50">New Window</text>
+		</g>
+		<g huayou:is="Layer" huayou:name="shape" >
+			<rect id="rect1" data-type="rect" x="50" y="150" ></rect>
+			<rect id="rect2" data-type="rect" x="50" y="200" ></rect>
+			<rect id="rect3" data-type="rect" x="50" y="250" ></rect>
+			<circle id="circle1" data-type="circle" cx="250" cy="165" ></circle>
+			<circle id="circle2" data-type="circle" cx="250" cy="215" ></circle>
+			<circle id="circle3" data-type="circle" cx="250" cy="265" ></circle>
+		</g>
+	</g>
+</svg>

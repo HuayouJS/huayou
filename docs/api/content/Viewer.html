@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<link rel="stylesheet" href="../page.css"/>
+	</head>
+	<body>
+	<div class="page-content">
+		<h1>Viewer</h1>
+		<p></p>
+		<h2>Constructor</h2>
+		<h4>
+			Viewer(container: string | HTMLDivElement, graph: Graph)
+		</h4>
+		<p>
+		</p>
+		<h2>Properties</h2>
+			<div>
+				<table>
+					<thead>
+					<tr>
+						<th style="width: 50%">Name</th>
+						<th style="width: 50%">Type</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td><a href="##">background</a></td>
+						<td><a href="##">string</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">border</a></td>
+						<td><a href="##">string</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">container (readonly)</a></td>
+						<td><a href="##">HTMLDivElement</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">dblClickZoomEnabled</a></td>
+						<td><a href="##">boolean</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">draggable</a></td>
+						<td><a href="##">boolean</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">height (readonly)</a></td>
+						<td><a href="##">number</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">maxZoom</a></td>
+						<td><a href="##">number</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">minZoom</a></td>
+						<td><a href="##">number</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">mouseWheelZoomEnabled</a></td>
+						<td><a href="##">boolean</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">graph (readonly)</a></td>
+						<td><a href="##">Graph</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">stopContextmenu</a></td>
+						<td><a href="##">boolean</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">visibility</a></td>
+						<td><a href="##">boolean</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">width (readonly)</a></td>
+						<td><a href="##">number</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">zoomSensitivity</a></td>
+						<td><a href="##">number</a></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		<h2>Methods</h2>
+			<div>
+				<table>
+					<thead>
+					<tr>
+						<th style="width: 20%">Return Type </th>
+						<th style="width: 80%">Method</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">addEventListener(type: string, listener: Function)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">contain()</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">center()</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">center(ucsPoint: Point)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">destroy()</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">fit()</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">Box</a></td>
+						<td><a href="##">getBBox()</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">Vector</a></td>
+						<td><a href="##">getCurrentPan()</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">number</a></td>
+						<td><a href="##">getCurrentZoom()</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">pan(x: number, y: number)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">pan(xy: number)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">panX(x: number)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">panY(y: number)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">panOn(x: number, y: number)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">panOn(xy: number)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">panXOn(x: number)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">panYOn(y: number)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">removeEventListener(type: string, listener: Function)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">reset()</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">resetPan()</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">resetZoom()</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">Point</a></td>
+						<td><a href="##">toVCS (ucsPoint: Point)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">Point</a></td>
+						<td><a href="##">toUCS (point: Point)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">zoom(scale: number, point?: Point)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">zoomIn()</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">zoomOut()</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">zoomOn(scale: number, point?: Point)</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">zoomFull()</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">void</a></td>
+						<td><a href="##">zoomBox(point: Point, size: Size)</a></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+		<h2>Events</h2>
+			<div>
+				<table>
+					<thead>
+					<tr>
+						<th style="width: 20%">Event</th>
+						<th style="width: 60%">Parameters</th>
+						<th style="width: 20%">device</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td><a href="##">click</a></td>
+						<td><a href="##">{type,target,currentTarget, point,event}</a></td>
+						<td><a href="##">mouse</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">contextmenu</a></td>
+						<td><a href="##">{type,target,currentTarget, point,event}</a></td>
+						<td><a href="##">mouse</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">dblclick</a></td>
+						<td><a href="##">{type,target,currentTarget, point,event}</a></td>
+						<td><a href="##">mouse</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">mousedown</a></td>
+						<td><a href="##">{type,target,currentTarget, point,event}</a></td>
+						<td><a href="##">mouse</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">mousemove</a></td>
+						<td><a href="##">{type,target,currentTarget, point,event}</a></td>
+						<td><a href="##">mouse</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">mouseup</a></td>
+						<td><a href="##">{type,target,currentTarget, point,event}</a></td>
+						<td><a href="##">mouse</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">mouseenter</a></td>
+						<td><a href="##">{type,target,currentTarget ,event}</a></td>
+						<td><a href="##">mouse</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">mouseleave</a></td>
+						<td><a href="##">{type,target,currentTarget ,event}</a></td>
+						<td><a href="##">mouse</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">wheel</a></td>
+						<td><a href="##">{type,target,currentTarget ,event}</a></td>
+						<td><a href="##">mouse</a></td>
+					</tr>
+					<tr>
+						<td><a href="##">panstart</a></td>
+						<td><a href="##">{type,target,currentTarget,event, oldPan ,newPan}</a></td>
+						<td><a href="##">/ </a></td>
+					</tr>
+					<tr>
+						<td><a href="##">panend</a></td>
+						<td><a href="##">{type,target,currentTarget,event, pan}</a></td>
+						<td><a href="##">/ </a></td>
+					</tr>
+					<tr>
+						<td><a href="##">zoomstart</a></td>
+						<td><a href="##">{type,target,currentTarget,event, oldZoom ,newZoom}</a></td>
+						<td><a href="##">/ </a></td>
+					</tr>
+					<tr>
+						<td><a href="##">zoomend</a></td>
+						<td><a href="##">{type,target,currentTarget,event, zoom}</a></td>
+						<td><a href="##">/ </a></td>
+					</tr>
+					<tr>
+						<td><a href="##">resize</a></td>
+						<td><a href="##">{type,target,currentTarget,event,oldSize,newSize}</a></td>
+						<td><a href="##">/</a></td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
+	</div>
+	</body>
+</html>

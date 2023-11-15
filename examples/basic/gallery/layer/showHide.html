@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Layer show/hide</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer, graph;
+			function onload() {
+				graph = new Huayou.Graph();
+				viewer = new Huayou.Viewer("container", graph);
+				viewer.border = "1px solid black";
+				addLayer();
+			}
+			function addLayer() {
+				let layer0 = new Huayou.Layer("layer0");
+				let attrs = {x:50, y:50, width:300, height:300, fill:"lightgray", stroke:"black", "fill-opacity":0.9};
+				let rect0 = Utils.createSVGElement("rect",attrs);
+				layer0.appendChild(rect0);
+				graph.layers.add(layer0)
+				let layer1 = new Huayou.Layer("layer1");
+				attrs = {x:100, y:100, width:80, height:80, fill:"red", stroke:"black"};
+				let rect1 = Utils.createSVGElement("rect",attrs);
+				layer1.appendChild(rect1);
+				graph.layers.add(layer1);
+				let layer2 = new Huayou.Layer("layer2");
+				attrs = {x:150, y:150, width:80, height:80, fill:"yellow", stroke:"black"};
+				let rect2 = Utils.createSVGElement("rect",attrs);
+				layer2.appendChild(rect2);
+				graph.layers.add(layer2);
+				let layer3 = new Huayou.Layer("layer3");
+				attrs = {x:200, y:200, width:80, height:80, fill:"blue", stroke:"black"};
+				let rect3 = Utils.createSVGElement("rect",attrs);
+				layer3.appendChild(rect3);
+				graph.layers.add(layer3);
+				createOptions();
+			}
+			function createOptions() {
+				let layers = graph.layers;
+				let select = document.getElementById("layers");
+				for(const layer of layers.values() ){
+					let option = document.createElement("option");
+					option.setAttribute("value",layer.name);
+					option.textContent = layer.name;
+					select.appendChild(option);
+				}
+			}
+			function visible() {
+				let name = document.getElementById("layers").value;
+				let layer = graph.layers.get(name);
+				layer.visible = layer.visible ? false : true;
+			}
+		</script>
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			layers <select id="layers"></select>
+			<button	onclick="visible()">show/hide</button>
+		</div>
+		<div id="container" style="width:95%;height:80%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

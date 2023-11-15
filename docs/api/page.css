@@ -1,0 +1,39 @@
+html{height:100%; width:100%}
+body{height:100%; width:100%; margin:0px; padding:0px}
+
+.page-content {
+	max-width: 900px;
+	/*height: 100%;*/
+	box-sizing: border-box;
+	padding: 10px;
+	padding-left: 50px;/**/
+}
+
+p {
+	font-size: 16px;
+	line-height: 26px;
+}
+table {
+	line-height: 1.8;
+	table-layout: auto;
+	text-align: left;
+	border-collapse: collapse;
+	text-indent: 0;
+	box-sizing: border-box;
+	border-spacing: 2px;
+	border: 1px solid #cacaca;
+	width:100%;
+}
+th{
+	border: 1px solid #cacaca;
+	background-color: #f3efef;
+}
+td{
+	border: 1px solid #cacaca;
+}
+th a {
+	text-decoration: none;
+}
+td a{
+	text-decoration: none;
+}

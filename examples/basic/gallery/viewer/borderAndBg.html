@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Viewer Border and Background</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer;
+			function onload() {
+				let loader = new Huayou.SVGLoader();
+				loader.load("../../models/hub.svg", function (svg){
+					let graph = new Huayou.Graph(svg);
+					viewer = new Huayou.Viewer("container", graph);
+					//The border shorthand CSS property
+					viewer.border = "1px solid black";
+					//The background shorthand CSS property
+					viewer.background = "lightgray";
+				});
+			}
+			function change() {
+				viewer.border = "2px solid red";
+				//use background-repeat、background-image and so on
+				viewer.background = "url('../../images/bg.png') repeat";
+			}
+		</script>
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			<button onclick="change()" >change</button>
+		</div>
+		<div id="container" style="width:600px;height:390px; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

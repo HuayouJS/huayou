@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns:huayou="com.huayoujs.xsvg"
+	 xmlns="http://www.w3.org/2000/svg"
+	 xmlns:xlink="http://www.w3.org/1999/xlink">
+	<defs huayou:is="Defs">
+		<symbol id="symbol1">
+			<text x="100" y="100" font-size="28" font-weight="bold" >defs symbol</text>
+		</symbol>
+	</defs>
+	<g huayou:is="Layers">
+		<g huayou:is="Layer" huayou:name="layer1" >
+			<text x="100" y="100" font-size="28" font-weight="bold" >Welcom to HuayouJS</text>
+		</g>
+		<g huayou:is="Layer" huayou:name="layer2" >
+			<rect x="50" y="80" width="30" height="30" stroke="red" stroke-width="5" fill="blue"></rect>
+			<line x1="100" y1="110" x2="400" y2="110" stroke="blue" stroke-width="3" ></line>
+		</g>
+	</g>
+</svg>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Element Events and Interaction</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer, graph;
+			function onload() {
+				let loader = new Huayou.SVGLoader();
+				loader.load("../../models/interaction.svg", function (svg){
+					graph = new Huayou.Graph(svg);
+					viewer = new Huayou.Viewer("container", graph);
+					viewer.border = "1px solid black";
+					addViewerListeners();
+					addElementListeners();
+				});
+			}
+			function addViewerListeners(){
+				//viewer mouseenter, e is instance of Viewer Event
+				viewer.addEventListener("mouseenter", (e) => {
+					document.body.style.cursor = 'move';
+				})
+				//viewer mouseleave, e is instance of Viewer Event
+				viewer.addEventListener("mouseleave",(e)=>{
+					document.body.style.cursor = '';
+				})
+				//viewer contextmenu,e is instance of Viewer Event
+				viewer.addEventListener("contextmenu",(e)=>{
+					let msg = "Viewer contextmenu :" +
+							`\n  e.type=${e.type} ` +
+							`\n  e.target.id=${e.target.id} ` +
+							`\n  e.currentTarget=${e.currentTarget.constructor.name} ` +
+							`\n  e.point.x=${e.point.x}}, e.point.y=${e.point.y} ` ;
+					alert(msg);
+				})
+			}
+			function addElementListeners(){
+				const layer = graph.layers.get("shape");
+				const rects = layer.querySelectorAll("[data-type='rect']");
+				for (const rect of rects.values()){
+					rect.addEventListener("click", onRectClick);
+					rect.addEventListener("contextmenu", onRectContextmenu);
+					rect.addEventListener("mouseenter", onRectMouseenter);
+					rect.addEventListener("mouseleave", onRectMouseleave);
+				}
+				const circles = layer.querySelectorAll("[data-type='circle']");
+				for (const circle of circles.values()){
+					circle.addEventListener("click", onCircleClick);
+					circle.addEventListener("contextmenu", onCircleContextmenu);
+				}
+			}
+			//e is native DOM Event
+			function onRectClick(e){
+				let msg = "Rect Click :" +
+						`\n  e.type=${e.type} ` +
+						`\n  e.target.id=${e.target.id} ` +
+						`\n  e.currentTarget=${e.currentTarget.constructor.name} ` +
+						`\n  e.clientX=${e.clientX}, e.clientY=${e.clientY} ` ;
+				alert(msg);
+			}
+			//e is native DOM Event
+			function onRectContextmenu(e){
+				let msg = "Rect Contextmenu :" +
+						`\n  e.type=${e.type} ` +
+						`\n  e.target.id=${e.target.id} ` +
+						`\n  e.currentTarget=${e.currentTarget.constructor.name} ` +
+						`\n  e.clientX=${e.clientX}, e.clientY=${e.clientY} ` ;
+				alert(msg);
+				e.stopPropagation();
+				e.preventDefault();
+			}
+			function onRectMouseenter(e){
+				const element = e.target;
+				element.style.fill="red";
+			}
+			function onRectMouseleave(e){
+				const element = e.target;
+				element.style.fill="";
+			}
+			//e is native DOM Event
+			function onCircleClick(e){
+				let msg = "Circle Click :" +
+						`\n  e.type=${e.type} ` +
+						`\n  e.target.id=${e.target.id} ` +
+						`\n  e.currentTarget=${e.currentTarget.constructor.name} ` +
+						`\n  e.clientX=${e.clientX}, e.clientY=${e.clientY} ` ;
+				alert(msg);
+			}
+			//e is native DOM Event
+			function onCircleContextmenu(e){
+				let msg = "Circle Contextmenu :" +
+						`\n  e.type=${e.type} ` +
+						`\n  e.target.id=${e.target.id} ` +
+						`\n  e.currentTarget=${e.currentTarget.constructor.name} ` +
+						`\n  e.clientX=${e.clientX}, e.clientY=${e.clientY} ` ;
+				alert(msg);
+				e.stopPropagation();
+				e.preventDefault();
+			}
+
+			function thisPage(){
+				window.location.href="../getstarted/helloworld.html";
+			}
+			function newTab(){
+				window.open("../getstarted/helloworld.html","hellworld");
+			}
+			function newWindow(){
+				window.open("../getstarted/helloworld.html","hellworld", "popup=yes,width=800,height=600");
+			}
+		</script>
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			<div>Please click the left/right mouse button on the element to observe the interaction results .</div>
+		</div>
+		<div id="container" style="width:95%;height:80%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Viewer destory & replace</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer=null;
+			function onload() {
+				open("../../models/standard.svg");
+			}
+			function open(svgUrl){
+				let loader = new Huayou.SVGLoader();
+				loader.load(svgUrl, function (modeledSVG){
+					if (viewer !== null) viewer.destroy();
+					let graph = new Huayou.Graph(modeledSVG);
+					viewer = new Huayou.Viewer("container",graph);
+				});
+			}
+
+			function destory(){
+				open("../../models/network.svg");
+			}
+		</script>
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			<button onclick="destory()">destory and replace</button>
+		</div>
+	</div>
+	<div id="container" style="width:95%;height:90%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

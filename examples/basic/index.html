@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="./index.css"/>
+    <script src="./contents.js"></script>
+    <!-- remove overflow:hidden -->
+    <link rel="stylesheet" href="./lib/element-ui@2.15.13.css"/>
+    <script src="./lib/vue.min.js"></script>
+    <script src="./lib/element-ui@2.15.13.js"></script>
+    <link rel="stylesheet" href="./lib/googlecode.min.css"/>
+    <script src="./lib/highlight.min.js"></script>
+    <script>
+        window.onload = function () {
+            createNavTree();
+            initHome();
+            initSplitBar();
+        }
+        function createNavTree() {
+            let Main = {
+                data() {
+                    return {
+                        data: Contents.data,
+                        defaultProps: {
+                            children: 'children',
+                            label: 'label'
+                        }
+                    };
+                },
+                methods: {
+                    handleNodeClick(data, node) {
+                        //console.log(data);
+                        let currentNode = node;
+                        if (currentNode.level == 1) return;
+                        while (currentNode.level > 1) {
+                            currentNode = currentNode.parent;
+                        }
+                        let folder = currentNode.data.folder;
+                        if (folder) {
+                            if (data.file) {
+                                //let href = "./gallery/" + folder + "/" + data.file;
+                                let href;
+                                if(folder == "Root"){
+                                    href = "./gallery/" + data.file;
+                                }else{
+                                    href = "./gallery/" + folder + "/" + data.file;
+                                }
+                                document.getElementById("preview-iframe").src = href;
+                                setFileName(data.file);
+                                AjaxAsync(href,onLoadDomePage);
+                            } else {
+                                console.log("The file property of the node is missing or has an empty value");
+                            }
+                        } else {
+                            console.log("The folder property of the node is missing or has an empty value");
+                        }
+                    }
+                }
+            };
+            let Ctor = Vue.extend(Main);
+            new Ctor().$mount('#content-tree');
+        }
+        function initHome(){
+            let homeUrl = "./gallery/getstarted/helloworld.html";
+            document.getElementById("preview-iframe").src = homeUrl;
+            AjaxAsync(homeUrl,onLoadDomePage);
+            setFileName("helloworld.html")
+        }
+        function onLoadDomePage(html) {
+            let codeAreaDiv = document.getElementById("content-area-code-area");
+            codeAreaDiv.textContent = html;
+            hljs.highlightElement(codeAreaDiv);
+            //console.log(previewFrame.contentDocument.documentElement.outerHTML);
+        }
+        function AjaxAsync( url, callback) {
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", url, true);
+            xhr.send(null);
+            xhr.onerror = () => {
+                let msg = `GET '${url}' failed,xhr.status=${xhr.status},xhr.statusText=${xhr.statusText}.`
+                throw new Error(msg);
+            }
+            xhr.onload  =  function()  {
+                callback(xhr.responseText);
+            };
+        }
+        function setFileName(filename){
+            document.getElementById("code-tab-filename").textContent = filename;
+        }
+
+        let startX, dragged = false, previewDiv, codeDiv, startPreviewDivWidth, contentAreaWidth;
+        let previewIframe,codeBody;
+        function initSplitBar() {
+            let spliteBar = document.getElementById("spliteBar");
+            spliteBar.onmousedown = function (e) {
+                startX = e.clientX;
+                let contentDiv = document.getElementById("content-area");
+                contentAreaWidth = contentDiv.clientWidth;
+                previewDiv = document.getElementById("content-area-preview");
+                startPreviewDivWidth = previewDiv.clientWidth;
+                codeDiv = document.getElementById("content-area-code");
+
+                previewIframe = document.getElementById("preview-iframe");
+                previewIframe.style.pointerEvents="none";
+                codeBody = document.getElementById("content-area-code-body");
+                codeBody.style.userSelect="none";
+                document.addEventListener("mousemove",onmousemove);
+                document.addEventListener("mouseup",onmouseup);
+                dragged = true;
+            }
+        }
+        function onmousemove(e){
+            if (dragged) {
+                let movedis = e.clientX - startX;
+                let previewDivWidth = startPreviewDivWidth + movedis;
+                if (previewDiv.clientWidth <= 100 && previewDivWidth < previewDiv.clientWidth) return;
+                let codeDivWidth = contentAreaWidth - previewDivWidth;
+                if (codeDiv.clientWidth <= 150 && codeDivWidth < codeDiv.clientWidth) return;
+
+                let previewDivPer = (previewDivWidth / contentAreaWidth) * 100;
+                previewDiv.style.width = previewDivPer + "%";
+                codeDiv.style.width = (100 - previewDivPer) + "%";
+            }
+            //console.log(e.clientX);
+        }
+        function onmouseup(e){
+            if (dragged) {
+                document.removeEventListener("mousemove",onmousemove);
+                document.removeEventListener("mouseup",onmouseup);
+                previewIframe.style.pointerEvents="all";
+                codeBody.style.userSelect="auto";
+                dragged = false;
+            }
+            //console.log("onmouseup");
+        }
+    </script>
+</head>
+<body>
+<div id="app">
+    <div class="header">
+        <div class="header-title">
+            <svg class="title-logo">
+                <g transform="translate(20 8) ">
+                    <image width="15" height="30" href="images/logo.png"></image>
+                </g>
+            </svg>
+            <span class="title-text">Huayou.js</span>
+        </div>
+        <div class="header-nav">
+            <span class="nav-item">Examples</span>
+        </div>
+    </div>
+    <div id="content" class="content">
+        <div class="content-tree">
+            <div id="content-tree">
+                <el-tree :data="data" :props="defaultProps" node-key="id" :default-expanded-keys="[1]"
+                         @node-click="handleNodeClick"></el-tree>
+            </div>
+        </div>
+        <div id="content-area" class="content-area">
+            <div id="content-area-preview" class="content-area-preview">
+                <div class="content-area-preview-head">
+                    <div class="content-area-tab">
+                        <span class="tab-buttons-span">PREVIEW</span>
+                    </div>
+                </div>
+                <div class="content-area-preview-iframe">
+                    <iframe id="preview-iframe" class="preview-iframe" ></iframe>
+                </div>
+                <div id="spliteBar" class="dragger"></div>
+            </div>
+            <div id="content-area-code" class="content-area-code">
+                <div class="content-area-code-head">
+                    <div class="content-area-tab">
+                        <span id="code-tab-filename" class="tab-buttons-span">file.html</span>
+                    </div>
+                </div>
+                <div id="content-area-code-body" class="content-area-code-body">
+                    <div id="content-area-code-area" class="code"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns:huayou="com.huayoujs.xsvg"
+	 xmlns="http://www.w3.org/2000/svg"
+	 xmlns:xlink="http://www.w3.org/1999/xlink">
+	<metadata huayou:is="Metadata">
+		<rdf:RDF
+				xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+				xmlns:connect="http://www.w3.org/1999/08/29-svg-connections-in-RDF#">
+			<rdf:Description about="#Hub">
+				<connect:ends rdf:resource="#socket1" />
+				<connect:ends rdf:resource="#socket2" />
+				<connect:ends rdf:resource="#socket3" />
+				<connect:ends rdf:resource="#socket4" />
+				<connect:ends rdf:resource="#socket5" />
+			</rdf:Description>
+		</rdf:RDF>
+	</metadata>
+	<style huayou:is="Style">
+		text { fill: black; stroke: none }
+		path { fill: none; stroke: black }
+		circle { fill: red; stroke: green }
+		.tag { font-size:13px }
+	</style>
+	<defs huayou:is="Defs">
+		<!-- hubPlug symbol. Used by hub -->
+		<symbol id="hubPlug">
+			<desc>A 10BaseT/100baseTX socket</desc>
+			<path d="M0,10 h5 v-9 h12 v9 h5 v16 h-22 z"  stroke="black"/>
+		</symbol>
+	</defs>
+	<g huayou:is="Layers">
+		<g huayou:is="Layer" huayou:name="device" >
+			<g id="Hub" transform="translate(100 100)">
+				<title>A network hub</title>
+				<text x="0" y="15">Hub</text>
+				<g transform="translate(0 20)">
+					<rect id="Hub_shell1" width="253" height="84" fill="white" stroke="black"/>
+					<rect id="Hub_shell2" width="229" height="44" x="12" y="10" fill="white" stroke="black"/>
+					<circle id="Hub_power" cx="227" cy="71" r="7" />
+					<!-- five groups each using the defined socket -->
+					<g id="sock1et" transform="translate(25 20)">
+						<title>Socket 1</title>
+						<use href="#hubPlug" />
+					</g>
+					<g id="socket2" transform="translate(70 20)">
+						<title>Socket 2</title>
+						<use href="#hubPlug" />
+					</g>
+					<g id="socket3" transform="translate(115 20)">
+						<title>Socket 3</title>
+						<use href="#hubPlug" />
+					</g>
+					<g id="socket4" transform="translate(160 20)">
+						<title>Socket 4</title>
+						<use href="#hubPlug" />
+					</g>
+					<g id="socket5" transform="translate(205 20)">
+						<title>Socket 5</title>
+						<use href="#hubPlug" />
+					</g>
+				</g>
+			</g>
+		</g>
+		<g huayou:is="Layer" huayou:name="tag" >
+			<text class="tag" x="150" y="150">1</text>
+			<text class="tag" x="195" y="150">2</text>
+			<text class="tag" x="240" y="150">3</text>
+			<text class="tag" x="285" y="150">4</text>
+			<text class="tag" x="330" y="150">5</text>
+			<text x="20" y="400">Data Source:</text>
+			<text x="20" y="420">https://developer.mozilla.org/en-US/docs/Web/SVG/Element/metadata</text>
+		</g>
+	</g>
+</svg>

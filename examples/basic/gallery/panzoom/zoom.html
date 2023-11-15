@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>About Zoom</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer, graph;
+			function onload() {
+				let loader = new Huayou.SVGLoader();
+				loader.load("../../models/standard.svg", function (svg){
+					graph = new Huayou.Graph(svg);
+					viewer = new Huayou.Viewer("container", graph);
+					viewer.border = "1px solid black";
+				});
+			}
+			function zoom(){
+				viewer.zoom(1.5);
+			}
+			function zoomAt(){
+				viewer.zoom(1.5,{x:100, y:100});
+			}
+			function zoomIn(){
+				viewer.zoomIn();
+			}
+			function zoomOut(){
+				viewer.zoomOut();
+			}
+			function zoomOn(){
+				viewer.zoomOn(1.05);
+			}
+			function zoomBox(){
+				let point = {x:100, y:100};
+				let size = {width:255, height:100};
+				viewer.zoomBox(point, size);
+			}
+			function setMinZoom(){
+				viewer.minZoom = 0.5;
+			}
+			function setMaxZoom(){
+				viewer.maxZoom = 2;
+			}
+			function setSensitivity(){
+				console.log("viewer.zoomSensitivity:",viewer.zoomSensitivity);
+				if (viewer.zoomSensitivity > 0.5){
+					viewer.zoomSensitivity = 0.01;
+				}else {
+					viewer.zoomSensitivity = 0.6;
+				}
+			}
+
+			function getCurrentZoom(){
+				let zoom = viewer.getCurrentZoom();
+				console.log(`CurrentZoom=${zoom}`);
+			}
+			function resetZoom(){
+				viewer.resetZoom();
+			}
+			function setMouseWheelZoomEnabled(){
+				//default true
+				viewer.mouseWheelZoomEnabled = viewer.mouseWheelZoomEnabled ? false : true;
+			}
+			function setDblClickZoomEnabled(){
+				//default true
+				viewer.dblClickZoomEnabled = viewer.dblClickZoomEnabled ? false : true;
+			}
+		</script>
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			<button onclick="zoom()">zoom</button>
+			<button	onclick="zoomAt()">zoomAt</button>
+			<button	onclick="zoomIn()">zoomIn</button>
+			<button onclick="zoomOut()">zoomOut</button>
+			<button onclick="zoomOn()">zoomOn</button>
+			<button onclick="zoomBox()">zoomBox</button>
+			<button onclick="setMinZoom()">setMinZoom</button>
+			<button onclick="setMaxZoom()">setMaxZoom</button>
+			<button onclick="setSensitivity()">setSensitivity</button>
+			<button	onclick="getCurrentZoom()">getCurrentZoom</button>
+			<button	onclick="resetZoom()">resetZoom</button>
+			<input onclick="setMouseWheelZoomEnabled()" type="checkbox" checked>mouseWheelZoomEnabled
+			<input onclick="setDblClickZoomEnabled()" type="checkbox" checked>dblClickZoomEnabled
+		</div>
+		<div id="container" style="width:95%;height:80%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+{
+  "name": "huayou",
+  "version": "0.6.5",
+  "description": "web-based Graphic Component for SCADA HMI or Dashboard",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rollup -c ",
+    "dev": "rollup -c -w"
+  },
+  "keywords": [
+    "SVG",
+    "Pan",
+    "Zoom",
+    "Layer",
+    "SCADA",
+    "HMI",
+    "Dashboard",
+    "graphic",
+    "Canvas"
+  ],
+  "author": "HuayouJS",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HuayouJS/Huayou.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HuayouJS/Huayou/issues"
+  },
+  "homepage": "https://github.com/HuayouJS/Huayou#readme",
+
+  "devDependencies": {
+    "rollup": "^2.68.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-plugin-typescript2": "^0.31.2",
+    "typescript": "^4.6.2"
+  },
+  "dependencies": {
+    "rollup-plugin-uglify": "^6.0.4"
+  }
+}

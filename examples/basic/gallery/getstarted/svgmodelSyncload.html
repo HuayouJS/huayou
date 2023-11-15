@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Synchronize load and create from SVG model file</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script type="module">
+			import Huayou from '../../../../dist/huayou.esm.min.js';
+			let graph = new Huayou.Graph("../../models/hub.svg");
+			let viewer = new Huayou.Viewer("container", graph);
+		</script>
+	</head>
+	<body>
+		<div id="container" style="width:100%;height:100%;border:0px"></div>
+	</body>
+</html>

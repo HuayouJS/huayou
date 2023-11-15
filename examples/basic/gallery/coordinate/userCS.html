@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>User Coordinate System</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer, graph;
+			function onload() {
+				let loader = new Huayou.SVGLoader();
+				loader.load("../../models/ucs.svg", function (svg){
+					graph = new Huayou.Graph(svg);
+					viewer = new Huayou.Viewer("container", graph);
+					viewer.border = "1px solid black";
+					addListener();
+				});
+			}
+			function addListener(){
+				const c0 = graph.getElementById("c0");
+				c0.addEventListener("click",onClick);
+				const c1 = graph.getElementById("c1");
+				c1.addEventListener("click",onClick);
+				const c2 = graph.getElementById("c2");
+				c2.addEventListener("click",onClick);
+			}
+			function onClick(e){
+				const circle = e.target;
+				//cx and cy reference to the user coordinate system
+				const cx = circle.getAttribute("cx");
+				const cy = circle.getAttribute("cy");
+				const msg = "user coordinates of the clicked red circle :" +
+					`\n   x=${cx} y=${cy} ` ;
+				alert(msg);
+				console.log(msg);
+			}
+		</script>
+
+	</head>
+	<body onload="onload()">
+		<div style="padding: 10px">
+			<div>Please click on the red circle to observe their user coordinates,
+				And drag the canvas to observe the occluded circle.</div>
+		</div>
+		<div id="container" style="width:95%;height:80%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

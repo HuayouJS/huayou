@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Metatdata of Graph</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer, graph;
+			function onload() {
+				graph = new Huayou.Graph();
+				viewer = new Huayou.Viewer("container", graph);
+				viewer.border = "1px solid black";
+				//demo of Layers & Layer
+				applyLayers();
+				//demo of Defs
+				applyDefs();
+				//demo of Style
+				applyStyle();
+				//demo of Metadata
+				applyMetadata();
+			}
+			function applyLayers() {
+				//create SVG graphic element
+				let text  = Utils.createSVGElement("text",{x:100,y:98});
+				text.textContent="Hub";
+				let attrs = {x:100, y:100, width:253, height:85, fill:"white", stroke:"black"};
+				let rect1 = Utils.createSVGElement("rect",attrs);
+				attrs = {x:112, y:110, width:229, height:45, fill:"white", stroke:"black"};
+				let rect2 = Utils.createSVGElement("rect",attrs);
+				//create device layer
+				let layer = new Huayou.Layer("device")
+				layer.appendChild(text);
+				layer.appendChild(rect1);
+				layer.appendChild(rect2);
+				let layers = graph.layers;//get Layers of Graph
+				layers.add(layer);//add layer to layers
+			}
+			function applyDefs() {
+				//create symbol and append to Defs
+				let symbol = Utils.createSVGElement('symbol');
+				symbol.id = "hubPlug";
+				let desc = Utils.createSVGElement('desc');
+				desc.textContent = "A 10BaseT/100baseTX socket";
+				attrs={d:"M0,10 h5 v-9 h12 v9 h5 v16 h-22 z", fill:"none", stroke:"black"}
+				let path = Utils.createSVGElement('path',attrs);
+				symbol.appendChild(desc);
+				symbol.appendChild(path);
+				//get defs of Graph
+				let defs = graph.defs;
+				defs.appendChild(symbol);//add symbol to Defs
+				//create SVG use element by symbol
+				let sock1et  = Utils.createSVGElement('use',{x:125, y: 120, href:"#hubPlug"});
+				let sock1et2 = Utils.createSVGElement('use',{x:170, y: 120, href:"#hubPlug"});
+				let sock1et3 = Utils.createSVGElement('use',{x:215, y: 120, href:"#hubPlug"});
+				let sock1et4 = Utils.createSVGElement('use',{x:260, y: 120, href:"#hubPlug"});
+				let sock1et5 = Utils.createSVGElement('use',{x:305, y: 120, href:"#hubPlug"});
+				let layer = graph.layers.get("device");
+				layer.append(sock1et,sock1et2,sock1et3,sock1et4,sock1et5);
+			}
+			function applyStyle(){
+				//create Hub power
+				let circle  = Utils.createSVGElement('circle',{cx:320, cy:170, r:7});
+				circle.id="Hub_power";
+				let layer = graph.layers.get("device");
+				layer.append(circle);
+				//get style of Graph
+				let style = graph.style;
+				//set styles of Hub power element
+				style.sheet.insertRule("#Hub_power { fill:red; stroke: green }", 0);
+				console.log("style.sheet: ",style.sheet);
+			}
+			function applyMetadata() {
+				const XMLNS = "http://www.w3.org/2000/xmlns/";
+				const RdfNsURI = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+				const ConnectNsURI = "http://www.w3.org/1999/08/29-svg-connections-in-RDF#";
+				//create rdf
+				let rdf  = document.createElementNS(RdfNsURI,'rdf:RDF');
+				rdf.setAttributeNS(XMLNS,"xmlns:rdf",RdfNsURI);
+				rdf.setAttributeNS(XMLNS,"xmlns:connect",ConnectNsURI);
+				//create Description
+				let description = document.createElementNS(RdfNsURI,'rdf:Description');
+				description.setAttribute("about","#Hub");
+				rdf.appendChild(description);
+				//create ends
+				let ends1 = document.createElementNS(ConnectNsURI,'connect:ends');
+				ends1.setAttributeNS(RdfNsURI,"rdf:resource","#socket1");
+				let ends2 = document.createElementNS(ConnectNsURI,'connect:ends');
+				ends2.setAttributeNS(RdfNsURI,"rdf:resource","#socket2");
+				let ends3 = document.createElementNS(ConnectNsURI,'connect:ends');
+				ends3.setAttributeNS(RdfNsURI,"rdf:resource","#socket3");
+				let ends4 = document.createElementNS(ConnectNsURI,'connect:ends');
+				ends4.setAttributeNS(RdfNsURI,"rdf:resource","#socket4");
+				let ends5 = document.createElementNS(ConnectNsURI,'connect:ends');
+				ends5.setAttributeNS(RdfNsURI,"rdf:resource","#socket5");
+				description.append(ends1, ends2, ends3, ends4, ends5);
+				//get metadata of Graph
+				let metadata = graph.metadata
+				metadata.appendChild(rdf);
+			}
+		</script>
+	</head>
+	<body onload="onload()">
+		<div id="container" style="width:90%;height:60%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

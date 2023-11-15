@@ -1,0 +1,20 @@
+html{height:100%; width:100%}
+body{height:100%; width:100%; margin:0px; padding:0px}
+
+.page-content {
+    height: 100%;
+    box-sizing: border-box;
+    /*padding: 10px;*/
+    /*padding-left: 15px;*/
+}
+
+.hljs {
+    line-height: 1.8;
+    font-family: Menlo,Monaco,Consolas,Courier,monospace;
+    font-size: 12px;
+    padding: 25px 24px;
+    background-color: #fafafa;
+    border: 1px solid #eaeefb;
+    margin-bottom: 25px;
+    border-radius: 4px;
+}
