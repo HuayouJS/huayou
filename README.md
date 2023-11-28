@@ -15,7 +15,7 @@ HuayouJS is a 2D graphics JavaScript library based on SVG, which provides Pan An
 Examples
 -------------
 [Basic examples index](https://huayoujs.github.io/huayou/examples/basic/index.html)
-
+[SCADA Application index](https://huayoujs.github.io/huayou/examples/scada/index.html)
 
 API Reference
 -------------

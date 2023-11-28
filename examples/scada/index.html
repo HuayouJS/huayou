@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		html{height:100%}
+		body{height:100%;margin:0px;padding:0px}
+	</style>
+	<link rel="stylesheet" href="lib/suite.min.css?v=6.3.1">
+	<script src="lib/suite.min.js?v=6.3.1"></script>
+	<script type="module">
+		import SCADA from "./src/main.js";
+		const scada = new SCADA();
+		let page = scada.getPage();
+		if(page === null) page = "models/station-index.svg";
+		scada.initPage(page);
+		window.scada = scada;
+	</script>
+</head>
+<body>
+<div id="app" style="width:100%;height:100%">
+	<div id="toolbar" style="width:100%;height:26px; background-color: #dddddd">
+		<button onclick="scada.toolbar.index()">index</button>
+		<button onclick="scada.toolbar.refresh()">refresh</button>
+		<button onclick="scada.toolbar.zoomFull()">full</button>
+		<button onclick="scada.toolbar.reset()">1:1</button>
+		<button onclick="scada.toolbar.center()">center</button>
+		<button onclick="scada.toolbar.zoomIn()">zoomIn</button>
+		<input id="scaleRate" type="text" style=" text-align:center" size="3" onkeyup="scada.toolbar.zoom(event)"></input>
+		<button onclick="scada.toolbar.zoomOut()">zoomOut</button>
+		<button id="zoomBBox" onclick="scada.toolbar.zoomBBox()">zoomBox</button>
+		|
+		<button onclick="scada.toolbar.query()">query</button>
+		<button id="addLayer" onclick="scada.toolbar.addLayer()">addLayer</button>
+		<button onclick="scada.toolbar.layers()">layers</button>
+		<button id="supervisory" onclick="scada.toolbar.supervisory()">supervisory</button>
+	</div>
+	<div id="view" style="width:100%;height:calc(100% - 26px);position:relative;">
+		<div id="container" style="width:100%;height:100%"></div>
+		<div id="overlay" style="position: absolute;top:0px;left:0px;width:100%;height:100%;pointer-events:none" >
+			<svg id="overlaySvg" style="width:100%;height:100%;display:block" pointer-events="none"></svg>
+		</div>
+	</div>
+</div>
+</body>
+</html>

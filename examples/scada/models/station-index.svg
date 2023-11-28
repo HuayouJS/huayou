@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<svg
+   style="background:black"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:huayou="com.huayoujs.xsvg">
+  <defs huayou:is="Defs">
+    <rect
+       x="346.34146"
+       y="404.87805"
+       width="178.04878"
+       height="24.390244"
+       id="rect476" />
+    <rect
+       x="346.34146"
+       y="407.31708"
+       width="175.60976"
+       height="39.024391"
+       id="rect470" />
+    <rect
+       x="346.34146"
+       y="407.31708"
+       width="175.60976"
+       height="39.024391"
+       id="rect470-7" />
+    <rect
+       x="346.34146"
+       y="404.87805"
+       width="178.04878"
+       height="24.390244"
+       id="rect476-3" />
+    <rect
+       x="346.34146"
+       y="407.31708"
+       width="175.60976"
+       height="39.024391"
+       id="rect470-3" />
+    <rect
+       x="346.34146"
+       y="404.87805"
+       width="178.04878"
+       height="24.390244"
+       id="rect476-39" />
+  </defs>
+  <g huayou:is="Layers">
+    <g huayou:name="layer220" huayou:is="Layer" transform="matrix(1.7415598,0,0,2.2338249,-91.820659,-102.58399)">
+    <g
+       id="g109133-0"
+       transform="matrix(0.47480815,0,0,0.50155006,-141.04031,-475.00588)"
+       onclick="scada.openPage('models/station-10.svg','_self')">
+      <rect
+         fill-opacity="1"
+         stroke="#808080"
+         id="135047343-6-0"
+         width="180.30128"
+         fill="#244953"
+         stroke-dasharray="2000, 0"
+         stroke-width="1.68748"
+         height="45.482613"
+         x="536.30157"
+         y="1258.8774"
+         cursor="pointer" />
+      <text
+         fill-opacity="1"
+         id="135047356-4-9"
+         stroke-opacity="0"
+         fill="#aa0000"
+         font-weight="bold"
+         x="566.97839"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1"
+         y="1290.0886"
+         font-size="26px"
+         style="fill:#f9f9f9"
+         cursor="pointer">station10</text>
+    </g>
+    <g>
+      <text
+       fill-opacity="1"
+       id="135047356-4-9-9"
+       stroke-opacity="0"
+       fill="#aa0000"
+       font-weight="bold"
+       x="442.59662"
+       dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.9759919"
+       y="99.159897"
+       font-size="25.3758px"
+       style="fill:#f9f9f9;stroke-width:1.52099;stroke-dasharray:none"
+       transform="matrix(0.9729756,0,-0.39071515,1.027775,0,0)">Station Index</text>
+    </g>
+    <g
+       id="g109133-05"
+       transform="matrix(0.47480815,0,0,0.50155006,-14.133727,-475.00588)"
+        onclick="alert('developing')">
+      <rect
+         fill-opacity="1"
+         stroke="#808080"
+         id="135047343-6-6"
+         width="180.30128"
+         fill="#244953"
+         stroke-dasharray="2000, 0"
+         stroke-width="1.68748"
+         height="45.482613"
+         x="536.30157"
+         y="1258.8774"
+         cursor="pointer" />
+      <text
+         fill-opacity="1"
+         id="135047356-4-1"
+         stroke-opacity="0"
+         fill="#aa0000"
+         font-weight="bold"
+         x="566.97839"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 0 1"
+         y="1290.0886"
+         font-size="26px"
+         style="fill:#f9f9f9"
+         cursor="pointer">station11</text>
+    </g>
+    <g
+       id="g109133-04"
+       transform="matrix(0.47480815,0,0,0.50155006,122.02058,-475.00588)"
+       onclick="alert('developing')">
+      <rect
+         fill-opacity="1"
+         stroke="#808080"
+         id="135047343-6-2"
+         width="180.30128"
+         fill="#244953"
+         stroke-dasharray="2000, 0"
+         stroke-width="1.68748"
+         height="45.482613"
+         x="536.30157"
+         y="1258.8774"
+         cursor="pointer" />
+      <text
+         fill-opacity="1"
+         id="135047356-4-3"
+         stroke-opacity="0"
+         fill="#aa0000"
+         font-weight="bold"
+         x="566.97839"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 0 1"
+         y="1290.0886"
+         font-size="26px"
+         style="fill:#f9f9f9"
+         cursor="pointer">station12</text>
+    </g>
+    <g
+       id="g109133-7"
+       transform="matrix(0.47480815,0,0,0.50155006,257.21146,-475.00588)"
+       onclick="alert('developing')">
+      <rect
+         fill-opacity="1"
+         stroke="#808080"
+         id="135047343-6-28"
+         width="180.30128"
+         fill="#244953"
+         stroke-dasharray="2000, 0"
+         stroke-width="1.68748"
+         height="45.482613"
+         x="536.30157"
+         y="1258.8774"
+         cursor="pointer" />
+      <text
+         fill-opacity="1"
+         id="135047356-4-8"
+         stroke-opacity="0"
+         fill="#aa0000"
+         font-weight="bold"
+         x="566.97839"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 0 1"
+         y="1290.0886"
+         font-size="26px"
+         style="fill:#f9f9f9"
+         cursor="pointer">station13</text>
+    </g>
+    <g
+       id="g109133-7-8"
+       transform="matrix(0.47480815,0,0,0.50155006,393.05906,-475.00588)"
+       onclick="alert('developing')">
+      <rect
+         fill-opacity="1"
+         stroke="#808080"
+         id="135047343-6-28-6"
+         width="180.30128"
+         fill="#244953"
+         stroke-dasharray="2000, 0"
+         stroke-width="1.68748"
+         height="45.482613"
+         x="536.30157"
+         y="1258.8774"
+         cursor="pointer" />
+      <text
+         fill-opacity="1"
+         id="135047356-4-8-3"
+         stroke-opacity="0"
+         fill="#aa0000"
+         font-weight="bold"
+         x="566.97839"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 1"
+         y="1290.0886"
+         font-size="26px"
+         style="fill:#f9f9f9"
+         cursor="pointer">station14</text>
+    </g>
+    <g
+       id="g109133-7-8-3"
+       transform="matrix(0.47480815,0,0,0.50155006,521.50667,-500.1942)"
+       onclick="alert('developing')">
+      <rect
+         fill-opacity="1"
+         stroke="#808080"
+         id="135047343-6-28-6-7"
+         width="180.30128"
+         fill="#244953"
+         stroke-dasharray="2000, 0"
+         stroke-width="1.68748"
+         height="45.482613"
+         x="536.30157"
+         y="1309.0984"
+         cursor="pointer" />
+      <text
+         fill-opacity="1"
+         id="135047356-4-8-3-1"
+         stroke-opacity="0"
+         fill="#aa0000"
+         font-weight="bold"
+         x="566.97839"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 1"
+         y="1340.9803"
+         font-size="26px"
+         style="fill:#f9f9f9"
+         cursor="pointer">station15</text>
+    </g>
+    <g
+       id="g109133-0-7"
+       transform="matrix(0.47480815,0,0,0.50155006,-143.84203,-370.85037)"
+       onclick="scada.openPage('models/station-20.svg','_self')">
+      <rect
+         fill-opacity="1"
+         stroke="#808080"
+         id="135047343-6-0-8"
+         width="180.30128"
+         fill="#244953"
+         stroke-dasharray="2000, 0"
+         stroke-width="1.68748"
+         height="45.482613"
+         x="536.30157"
+         y="1258.8774"
+         cursor="pointer" />
+      <text
+         fill-opacity="1"
+         id="135047356-4-9-4"
+         stroke-opacity="0"
+         fill="#aa0000"
+         font-weight="bold"
+         x="566.97839"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1"
+         y="1290.0886"
+         font-size="26px"
+         style="fill:#f9f9f9"
+         cursor="pointer">station20</text>
+    </g>
+    <g
+       id="g109133-05-1"
+       transform="matrix(0.47480815,0,0,0.50155006,-16.935448,-370.85037)"
+       onclick="alert('developing')">
+      <rect
+         fill-opacity="1"
+         stroke="#808080"
+         id="135047343-6-6-2"
+         width="180.30128"
+         fill="#244953"
+         stroke-dasharray="2000, 0"
+         stroke-width="1.68748"
+         height="45.482613"
+         x="536.30157"
+         y="1258.8774"
+         cursor="pointer" />
+      <text
+         fill-opacity="1"
+         id="135047356-4-1-5"
+         stroke-opacity="0"
+         fill="#aa0000"
+         font-weight="bold"
+         x="566.97839"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 0 1"
+         y="1290.0886"
+         font-size="26px"
+         style="fill:#f9f9f9"
+         cursor="pointer">station21</text>
+    </g>
+    <g
+       id="g109133-04-1"
+       transform="matrix(0.47480815,0,0,0.50155006,119.21885,-370.85037)"
+       onclick="alert('developing')">
+      <rect
+         fill-opacity="1"
+         stroke="#808080"
+         id="135047343-6-2-1"
+         width="180.30128"
+         fill="#244953"
+         stroke-dasharray="2000, 0"
+         stroke-width="1.68748"
+         height="45.482613"
+         x="536.30157"
+         y="1258.8774"
+         cursor="pointer" />
+      <text
+         fill-opacity="1"
+         id="135047356-4-3-1"
+         stroke-opacity="0"
+         fill="#aa0000"
+         font-weight="bold"
+         x="566.97839"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 0 1"
+         y="1290.0886"
+         font-size="26px"
+         style="fill:#f9f9f9"
+         cursor="pointer">station22</text>
+    </g>
+    <g
+       id="g109133-7-5"
+       transform="matrix(0.47480815,0,0,0.50155006,254.40973,-370.85037)"
+       onclick="alert('developing')">
+      <rect
+         fill-opacity="1"
+         stroke="#808080"
+         id="135047343-6-28-7"
+         width="180.30128"
+         fill="#244953"
+         stroke-dasharray="2000, 0"
+         stroke-width="1.68748"
+         height="45.482613"
+         x="536.30157"
+         y="1258.8774"
+         cursor="pointer" />
+      <text
+         fill-opacity="1"
+         id="135047356-4-8-0"
+         stroke-opacity="0"
+         fill="#aa0000"
+         font-weight="bold"
+         x="566.97839"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 0 1"
+         y="1290.0886"
+         font-size="26px"
+         style="fill:#f9f9f9"
+         cursor="pointer">station23</text>
+    </g>
+    <g
+       id="g109133-7-8-9"
+       transform="matrix(0.47480815,0,0,0.50155006,390.25734,-370.85037)"
+       onclick="alert('developing')">
+      <rect
+         fill-opacity="1"
+         stroke="#808080"
+         id="135047343-6-28-6-8"
+         width="180.30128"
+         fill="#244953"
+         stroke-dasharray="2000, 0"
+         stroke-width="1.68748"
+         height="45.482613"
+         x="536.30157"
+         y="1258.8774"
+         cursor="pointer" />
+      <text
+         fill-opacity="1"
+         id="135047356-4-8-3-5"
+         stroke-opacity="0"
+         fill="#aa0000"
+         font-weight="bold"
+         x="566.97839"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 1"
+         y="1290.0886"
+         font-size="26px"
+         style="fill:#f9f9f9"
+         cursor="pointer">station24</text>
+    </g>
+    <g
+       id="g109133-7-8-3-3"
+       transform="matrix(0.47480815,0,0,0.50155006,518.70495,-396.03868)"
+       onclick="alert('developing')">
+      <rect
+         fill-opacity="1"
+         stroke="#808080"
+         id="135047343-6-28-6-7-0"
+         width="180.30128"
+         fill="#244953"
+         stroke-dasharray="2000, 0"
+         stroke-width="1.68748"
+         height="45.482613"
+         x="536.30157"
+         y="1309.0984"
+         cursor="pointer" />
+      <text
+         fill-opacity="1"
+         id="135047356-4-8-3-1-6"
+         stroke-opacity="0"
+         fill="#aa0000"
+         font-weight="bold"
+         x="566.97839"
+         dx="0 0 0 0 0 0 0 0 0 0 0 0 1"
+         y="1340.9803"
+         font-size="26px"
+         style="fill:#f9f9f9"
+         cursor="pointer">station25</text>
+    </g>
+    <line
+       fill-opacity="0"
+       stroke="#b94842"
+       id="30000088"
+       fill="#000000"
+       stroke-dasharray="4000, 0"
+       x1="75.681419"
+       y1="125.38802"
+       x2="914.29901"
+       y2="125.38802"
+       stroke-width="3.16811"
+       icontype="busLine"
+       style="fill:#550000;stroke:#afb942;stroke-width:1.52099;stroke-dasharray:1920.38, 0;stroke-dashoffset:0;stroke-opacity:1" />
+    <line
+       fill-opacity="0"
+       stroke="#b94842"
+       id="30000088-6"
+       fill="#000000"
+       stroke-dasharray="4000, 0"
+       x1="77.306389"
+       y1="219.39316"
+       x2="913.80151"
+       y2="219.39316"
+       stroke-width="3.16409"
+       icontype="busLine"
+       style="fill:#550000;stroke:#afb942;stroke-width:1.52099;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       inkscape:label="30000088-6" />
+    <line
+       fill-opacity="0"
+       stroke="#b94842"
+       id="30000088-6-2"
+       fill="#000000"
+       stroke-dasharray="4000, 0"
+       x1="76.402885"
+       y1="318.25262"
+       x2="915.07837"
+       y2="318.25262"
+       stroke-width="3.16821"
+       icontype="busLine"
+       style="fill:#550000;stroke:#afb942;stroke-width:1.52099;stroke-dasharray:1920.32, 0;stroke-dashoffset:0;stroke-opacity:1" />
+    <line
+       fill-opacity="0"
+       stroke="#b94842"
+       id="30000088-68"
+       fill="#000000"
+       stroke-dasharray="4000, 0"
+       x1="76.914444"
+       y1="127.17524"
+       x2="76.914444"
+       y2="318.59076"
+       stroke-width="1.47268"
+       icontype="busLine"
+       style="fill:#550000;stroke:#afb942;stroke-opacity:1" />
+    <line
+       fill-opacity="0"
+       stroke="#b94842"
+       id="30000088-68-4"
+       fill="#000000"
+       stroke-dasharray="4000, 0"
+       x1="914.96564"
+       y1="125.98264"
+       x2="914.96564"
+       y2="318.2973"
+       stroke-width="1.47614"
+       icontype="busLine"
+       style="fill:#550000;stroke:#afb942;stroke-opacity:1" />
+  </g>
+  </g>
+</svg>
