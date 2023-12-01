@@ -1,8 +1,17 @@
 {
   "name": "huayou",
-  "version": "0.6.5",
-  "description": "web-based Graphic Component for SCADA HMI or Dashboard",
-  "main": "index.js",
+  "version": "0.6.8",
+  "description": "HuayouJS is a 2D graphics library based on SVG,which provides Pan, Zoom, and Layer management functions.",
+  "type": "module",
+  "main": "huayou.min.js",
+  "module": "huayou.esm.min.js",
+  "exports": {
+    ".": {
+      "import": "./huayou.esm.min.js",
+      "require": "./huayou.min.js"
+    }
+  },
+  "typings": "./types/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "rollup -c ",
@@ -13,9 +22,7 @@
     "Pan",
     "Zoom",
     "Layer",
-    "SCADA",
-    "HMI",
-    "Dashboard",
+    "native",
     "graphic",
     "Canvas"
   ],
@@ -28,14 +35,12 @@
     "url": "https://github.com/HuayouJS/Huayou/issues"
   },
   "homepage": "https://github.com/HuayouJS/Huayou#readme",
-
   "devDependencies": {
-    "rollup": "^2.68.0",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "rollup": "^4.4.1",
     "rollup-plugin-sourcemaps": "^0.6.3",
-    "rollup-plugin-typescript2": "^0.31.2",
-    "typescript": "^4.6.2"
-  },
-  "dependencies": {
-    "rollup-plugin-uglify": "^6.0.4"
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.36.0",
+    "typescript": "^5.2.2"
   }
 }

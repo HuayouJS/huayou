@@ -1,11 +1,8 @@
-
 import typescript from 'rollup-plugin-typescript2';
-import  { uglify }  from  'rollup-plugin-uglify';
-
-//import sourceMaps from "rollup-plugin-sourcemaps";
+import {terser} from 'rollup-plugin-terser';
 
 export default {
-	input: 'src/main.ts',
+	input: 'src/index.ts',
 	output: {
 		file: 'dist/huayou.min.js',
 		//file: 'dist/huayou.esm.min.js',
@@ -14,18 +11,14 @@ export default {
 		//format: 'esm',
 		sourcemap: true,
 	},
-	////plugins: [resolve(),commonjs()],
 	plugins: [
 		typescript({
-		  useTsconfigDeclarationDir: true,
-		  //abortOnError: false,
-		  //removeComments: false,
-		 //sourceMap:true,
+			useTsconfigDeclarationDir: true,
+			//abortOnError: false,
+			//removeComments: false,
+			//sourceMap:true,
 		}),
-		/**/
-		uglify({
-			compress:  true
-		}),
+		terser()
 		//sourceMaps(),
 	],
 }

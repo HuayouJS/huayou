@@ -1,14 +1,15 @@
 {
   "compilerOptions": {
-    "outDir": "lib",
-    "module": "ES2015",
-    "target": "ES2015",
+    "outDir": "./types",
+    "module": "es6",
+    "target": "es2022",
     "sourceMap": true,//
     "noEmitOnError": true,
-    "lib": ["ES2015", "dom"],
+    "lib": ["ES2022", "dom"],
     "moduleResolution": "node",
     "declaration": true,
-    "removeComments": false
+    //"emitDeclarationOnly": true,
+    "removeComments": true
     // "noImplicitAny": true,
     // "strict": true
   },
