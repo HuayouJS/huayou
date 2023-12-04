@@ -11,6 +11,8 @@ const Getstarted = {
             label: 'SVG model load', file: 'svgmodelload.html'
         }, {
             label: 'SVG model sync load ', file: 'svgmodelSyncload.html'
+        },{
+            label: 'NPM install ', file: 'npminstall.html'
         },
     ]
 }
