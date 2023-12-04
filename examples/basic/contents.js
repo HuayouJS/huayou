@@ -164,6 +164,10 @@ const Advanced = {
             label: 'Viewer resize', file: 'viewerResize.html'
         }, {
             label: 'Viewer destory & replace', file: 'viewerDestory.html'
+        }, {
+            label: 'Import from Inkscape', file: 'inkscape.html'
+        }, {
+            label: 'Load animation', file: 'loading.html'
         },
     ]
 }
@@ -171,3 +175,4 @@ const Advanced = {
 const Contents = {
     data: [Getstarted, Viewer, Graph, Layer, PanZoom, NodeOperation, Find, Interaction, CoordSystems, Advanced],
 }
+
