@@ -30,12 +30,12 @@
   "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/HuayouJS/Huayou.git"
+    "url": "git+https://github.com/HuayouJS/huayou.git"
   },
   "bugs": {
-    "url": "https://github.com/HuayouJS/Huayou/issues"
+    "url": "https://github.com/HuayouJS/huayou/issues"
   },
-  "homepage": "https://github.com/HuayouJS/Huayou#readme",
+  "homepage": "https://github.com/HuayouJS/huayou#readme",
   "devDependencies": {
     "@rollup/plugin-node-resolve": "^15.2.3",
     "rollup": "^4.4.1",
