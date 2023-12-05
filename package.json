@@ -27,6 +27,7 @@
     "Canvas"
   ],
   "author": "HuayouJS",
+  "license": "BSD-3-Clause",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/HuayouJS/Huayou.git"
