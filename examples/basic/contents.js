@@ -113,7 +113,7 @@ const NodeOperation = {
 
 const Find = {
     label: 'Find',
-    folder: 'Find',
+    folder: 'find',
     children: [
         {
             label: 'Find in Graph', file: 'inGraph.html'
