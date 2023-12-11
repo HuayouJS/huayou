@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Integrate Echarts</title>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<script src="../../../../dist/huayou.min.js"></script>
+		<script src="../../lib/util.js"></script>
+		<script src="../../lib/echarts.min.js"></script>
+		<style>
+			html {height: 100%; width: 100%;}
+			body {height: 100%; width: 100%; margin:0px;}
+		</style>
+		<script>
+			let viewer,chart;
+			function onload() {
+				let loader = new Huayou.SVGLoader();
+				loader.load("../../models/standard.svg", function (svg){
+					let graph = new Huayou.Graph(svg);
+					viewer = new Huayou.Viewer("container", graph);
+					initEcharts();
+				});
+			}
+			function initEcharts(){
+				const attrs = { x:100, y: 230, width:250, height:200 };
+				const foreign = Utils.createSVGElement("foreignObject",attrs);
+				const div = document.createElement("div");
+				div.style.width="250px";
+				div.style.height="200px";
+				foreign.appendChild(div);
+				createChart(div);
+				let layer = viewer.graph.layers.get("device");
+				layer.appendChild(foreign);
+			}
+			function createChart(container){
+				let option = {
+					title: {
+						text: 'network traffic'
+					},
+					tooltip: {},
+					xAxis: {
+						data: ['socket1', 'socket2', 'socket3', 'socket4', 'socket5']
+					},
+					yAxis: {},
+					series: [
+						{
+							name: 'traffic',
+							type: 'bar',
+							data: [5, 20, 36, 10, 19]
+						}
+					]
+				};
+				chart = echarts.init(container);
+				chart.setOption(option)
+				chart.on('click', function(params) {
+					alert(params.name);
+				});
+			}
+		</script>
+	</head>
+	<body onload="onload()">
+		<div id="container" style="width:95%;height:80%; position: relative;left:10px;top:10px"></div>
+	</body>
+</html>

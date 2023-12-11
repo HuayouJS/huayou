@@ -163,6 +163,10 @@ const Integration = {
         {
             label: 'Import from Inkscape', file: 'inkscape.html'
         }, {
+            label: 'Integrate HTML element', file: 'htmlelement.html'
+        }, {
+            label: 'Integrate Echarts', file: 'echarts.html'
+        }, {
             label: 'Integrate into Vue', file: 'vue.html'
         },
     ]
