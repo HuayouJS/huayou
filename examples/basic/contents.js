@@ -156,6 +156,18 @@ const CoordSystems = {
     ]
 }
 
+const Integration = {
+    label: 'Integration',
+    folder: 'integration',
+    children: [
+        {
+            label: 'Import from Inkscape', file: 'inkscape.html'
+        }, {
+            label: 'Integrate into Vue', file: 'vue.html'
+        },
+    ]
+}
+
 const Advanced = {
     label: 'Advanced',
     folder: 'advanced',
@@ -165,14 +177,12 @@ const Advanced = {
         }, {
             label: 'Viewer destory & replace', file: 'viewerDestory.html'
         }, {
-            label: 'Import from Inkscape', file: 'inkscape.html'
-        }, {
             label: 'Load animation', file: 'loading.html'
         },
     ]
 }
 
 const Contents = {
-    data: [Getstarted, Viewer, Graph, Layer, PanZoom, NodeOperation, Find, Interaction, CoordSystems, Advanced],
+    data: [Getstarted, Viewer, Graph, Layer, PanZoom, NodeOperation, Find, Interaction, CoordSystems, Integration, Advanced],
 }
 

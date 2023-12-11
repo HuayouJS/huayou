@@ -38,23 +38,23 @@
 					<rect id="Hub_shell2" width="229" height="44" x="12" y="10" fill="white" stroke="black"/>
 					<circle id="Hub_power" cx="227" cy="71" r="7" />
 					<!-- five groups each using the defined socket -->
-					<g id="sock1et" transform="translate(25 20)">
+					<g id="socket" transform="translate(25 20)" data-type="socket" pointer-events="all">
 						<title>Socket 1</title>
 						<use href="#hubPlug" />
 					</g>
-					<g id="socket2" transform="translate(70 20)">
+					<g id="socket2" transform="translate(70 20)" data-type="socket" pointer-events="all">
 						<title>Socket 2</title>
 						<use href="#hubPlug" />
 					</g>
-					<g id="socket3" transform="translate(115 20)">
+					<g id="socket3" transform="translate(115 20)" data-type="socket" pointer-events="all">
 						<title>Socket 3</title>
 						<use href="#hubPlug" />
 					</g>
-					<g id="socket4" transform="translate(160 20)">
+					<g id="socket4" transform="translate(160 20)" data-type="socket" pointer-events="all">
 						<title>Socket 4</title>
 						<use href="#hubPlug" />
 					</g>
-					<g id="socket5" transform="translate(205 20)">
+					<g id="socket5" transform="translate(205 20)" data-type="socket" pointer-events="all">
 						<title>Socket 5</title>
 						<use href="#hubPlug" />
 					</g>
