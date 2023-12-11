@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg style="background:white;"
+     xmlns:huayou="com.huayoujs.xsvg"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <style huayou:is="Style">
+    button { width:182px}
+    table {width:182px; margin-top:5px}
+    td { border:  1px solid #dddddd; }
+  </style>
+  <g huayou:is="Layers">
+    <g huayou:name="layer0" huayou:is="Layer">
+      <rect id="rect0" x="50" y="50" width="300" height="300" fill="lightgray" stroke="black" fill-opacity="0.9"></rect>
+      <rect id="rect1" x="100" y="100" width="80" height="80" fill="red" stroke="black"></rect>
+      <rect id="rect2" x="150" y="150" width="80" height="80" fill="yellow" stroke="black"></rect>
+      <rect id="rect3" x="200" y="200" width="80" height="80" fill="blue" stroke="black"></rect>
+    </g>
+    <g huayou:name="layer1" huayou:is="Layer">
+      <foreignObject x="380" y="50" height="500px" width="220px">
+        <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%; width:100%">
+          <button onclick="">button</button>
+          <input type="text" value="110" size="22"></input>
+          <select>
+            <option  value="option1"> Option  1  </option>
+            <option  value="option2"> Option  2  </option>
+            <option  value="option3"> Option  3  </option>
+          </select>
+          <input type="checkbox"></input>
+          <input type="radio"></input>
+          <table style="border: solid 1px">
+            <tr>
+              <td>shape</td>
+              <td>color</td>
+            </tr>
+            <tr>
+              <td>rect0</td>
+              <td>lightgray</td>
+            </tr>
+            <tr>
+              <td>rect1</td>
+              <td>red</td>
+            </tr>
+            <tr>
+              <td>rect2</td>
+              <td>yellow</td>
+            </tr>
+            <tr>
+              <td>rect3</td>
+              <td>blue</td>
+            </tr>
+          </table>
+        </div>
+      </foreignObject>
+    </g>
+  </g>
+</svg>
