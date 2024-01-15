@@ -62,14 +62,9 @@ class ViewEvents {
 		this.mousedownState=true;
 		//console.log("mousedown point x=%s y=%s",e.point.x,e.point.y)
 		if(this.toolbar.Toolbar_BBox_State&&this.mousedownState==true&&e.event.button==0) {
-			let params = {
-				"id": "zoomBBox",
-				"x": e.point.x, "y": e.point.y, "width": 0, "height": 0,
-				"stroke": "red", "stroke-width": 3
-			};
 			this.zoomBBox.element = document.createElementNS(Constants.SvgNS, "rect");
-			this.zoomBBox.element.style.x = e.point.x;
-			this.zoomBBox.element.style.y = e.point.y;
+			this.zoomBBox.element.style.x = e.point.x + "px";
+			this.zoomBBox.element.style.y = e.point.y + "px";
 			this.zoomBBox.element.style.stroke = "red";
 			this.zoomBBox.element.style.strokeWidth = 3;
 			this.zoomBBox.element.style.fillOpacity = 0;
@@ -98,8 +93,8 @@ class ViewEvents {
 			//console.log("mousemove point x=%s y=%s",e.point.x,e.point.y)
 			let width=e.point.x - this.zoomBBox.initPoint.x;
 			let height=e.point.y - this.zoomBBox.initPoint.y;
-			this.zoomBBox.element.style.width=width;
-			this.zoomBBox.element.style.height=height;
+			this.zoomBBox.element.style.width=width + "px";
+			this.zoomBBox.element.style.height=height + "px";
 		}
 	}
 	onViewerContextmenu(e){
