@@ -1,126 +1,57 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Integrate into Vue and use Element-ui</title>
+	<title>Integrate  Vue</title>
 	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<link rel="stylesheet" href="../../lib/element-ui@2.15.13.css"/>
 	<style type="text/css">
 		html{height:100%}
 		body{height:100%;margin:0px;padding:0px}
-		.el-dialog {
-			display: flex;
-			flex-direction: column;
-			margin: 0 !important;
-			position: absolute;
-			right: 0px;
-			top: 50px;
-		}
 	</style>
+	<script src="../../lib/util.js"></script>
 	<script src="../../lib/vue.min.js"></script>
-	<script src="../../lib/element-ui@2.15.13.js"></script>
 	<script type="module">
 		import Huayou from '../../../../dist/huayou.esm.min.js';
-		let Main = {
-			data() {
+		let viewer;
+		let loader = new Huayou.SVGLoader();
+		loader.load("../../models/standard.svg", function (svg){
+			let graph = new Huayou.Graph(svg);
+			viewer = new Huayou.Viewer("container", graph);
+			initVueComponent();
+		});
+		let ButtonCounter = {
+			template: '<g>' +
+						'<text >The Vue Component:</text>' +
+						'<rect y="2" width="30" height="30" v-bind:fill="color" @click="onRectClick" ></rect>' +
+						'<foreignObject  y="35" width="200" height="50">' +
+							'<button xmlns="http://www.w3.org/1999/xhtml" @click="count++">You clicked me {{ count }} times.</button>' +
+						'</foreignObject>' +
+					'</g>',
+			data: function () {
 				return {
-					dialogVisible:false,
-					viewer:null,
-					graph:null,
-					sockets:[],
-					posIcon:null,
-				};
-			},
-			mounted() {
-				let graph = new Huayou.Graph("../../models/standard.svg");
-				this.viewer = new Huayou.Viewer("container",graph);
-				this.graph = graph;
-				this.init();
+					count: 0,
+					color: "red"
+				}
 			},
 			methods: {
-				init() {
-					this.initSockets();
+				onRectClick() {
+					this.color == "red" ? this.color="blue" : this.color="red";
 				},
-				initSockets() {
-					const elements = this.graph.querySelectorAll("[data-type='socket']");
-					for (const element of elements.values()){
-						this.sockets.push({id: element.id});
-						element.addEventListener("click",(e)=>{
-							this.onSocketClick(e);
-						})
-					}
-				},
-				onSocketClick(e){
-					let msg = `The ID of the clicked element is '${e.currentTarget.id}' `;
-					alert(msg);
-					e.stopPropagation();
-				},
-				zoomFull() {
-					this.viewer.zoomFull();
-				},
-				reset() {
-					this.viewer.reset();
-				},
-				zoomIn() {
-					this.viewer.zoomIn();
-				},
-				zoomOut() {
-					this.viewer.zoomOut();
-				},
-				openQueryWindow() {
-					this.dialogVisible=true;
-				},
-				find(id) {
-					this.removePosIcon();
-					let element=this.graph.getElementById(id);
-					let bbox =element.getBBox();
-					let imageWidth = 50,imageHeight = 50;
-					let x = bbox.x - 15, y = bbox.y - 50;
-					let image = document.createElementNS("http://www.w3.org/2000/svg","image")
-					image.setAttribute("href","../../images/locate.png");
-					image.setAttribute("width",imageWidth);
-					image.setAttribute("height",imageHeight);
-					image.setAttribute("x",x);
-					image.setAttribute("y",y);
-					element.insertAdjacentElement("beforeend",image);
-					this.posIcon = image;
-				},
-				onClose(){
-					this.dialogVisible = false;
-					this.removePosIcon();
-				},
-				removePosIcon() {
-					if(this.posIcon){
-						this.posIcon.remove();
-					}
-				}
 			}
 		};
-		let App = Vue.extend(Main);
-		new App().$mount('#app');
+		function initVueComponent(){
+			const attrs = {transform:"translate(300 300)"};
+			const container = Utils.createSVGElement("g",attrs);
+			let layer = viewer.graph.layers.get("device");
+			layer.appendChild(container);
+			const Component  = Vue.extend(ButtonCounter);
+			let component = new Component().$mount();
+			container.appendChild(component.$el);
+		}
 	</script>
 </head>
 <body>
 <div id="app" style="width:100%;height:100%">
-	<div id="toolbar" style="width:100%;height:30px; background-color: #dddddd">
-		<el-button @click="zoomFull" icon="el-icon-full-screen" size="mini">full</el-button>
-		<el-button @click="reset" icon="el-icon-refresh-left" size="mini">reset</el-button>
-		<el-button @click="zoomIn" icon="el-icon-circle-plus-outline" size="mini">zoomIn</el-button>
-		<el-button @click="zoomOut" icon="el-icon-remove-outline" size="mini">zoomOut</el-button>
-		<el-button @click="openQueryWindow" icon="el-icon-search" size="mini">query</el-button>
-	</div>
-	<div id="view" style="width:100%;height:calc(100% - 30px);position:relative;">
-		<div id="container" style="width:100%;height:100%"></div>
-	</div>
-	<el-dialog title="query socket" :visible.sync="dialogVisible" width="30%" :before-close="onClose" :modal="false" :close-on-click-modal="false">
-		<ul>
-			<li v-for="item in sockets">
-				<el-link type="primary" @click="find(item.id)">{{ item.id }}</el-link>
-			</li>
-		</ul>
-		<span slot="footer" class="dialog-footer">
-			<el-button type="primary" @click="onClose">OK</el-button>
-	  	</span>
-	</el-dialog>
+	<div id="container" style="width:100%;height:100%"></div>
 </div>
 </body>
 </html>

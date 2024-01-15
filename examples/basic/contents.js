@@ -166,8 +166,10 @@ const Integration = {
             label: 'Integrate HTML element', file: 'htmlelement.html'
         }, {
             label: 'Integrate Echarts', file: 'echarts.html'
+        },{
+            label: 'Integrate Vue', file: 'vue.html'
         }, {
-            label: 'Integrate into Vue', file: 'vue.html'
+            label: 'Integrate into Vue', file: 'intoVue.html'
         },
     ]
 }
